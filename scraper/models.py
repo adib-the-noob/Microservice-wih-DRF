@@ -13,3 +13,6 @@ class BaseModel(models.Model):
 class Stocks(BaseModel):
     stock_name = models.CharField(max_length=200)
     stock_url = models.URLField(max_length=200)
+    
+    class Meta:
+        ordering = ['stock_name',]
