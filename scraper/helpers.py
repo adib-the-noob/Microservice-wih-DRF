@@ -17,3 +17,13 @@ def get_all_stock_urls():
                 )
     except Exception as e:
         print(e)
+
+
+def get_stock_price():
+    try:
+        page = requests.get('https://stocks.zerodha.com/stocks/abb-india-ABB?checklist=basic')
+        soup = BeautifulSoup(page.text, 'html.parser')
+        data = soup.find_all(True,{'class' : ['hlcr']})
+        print(data)
+    except Exception as e:
+        print(e)
